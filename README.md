@@ -26,6 +26,22 @@ Package: qdrant-edge-py 0.7.2
 
 ## Install from GitHub
 
+Check the target device before installing:
+
+```bash
+python -V
+uname -m
+ldd --version | head -n 1
+```
+
+Expected:
+
+```text
+Python 3.11.x
+armv7l
+glibc 2.28 or newer
+```
+
 Install the prebuilt wheel directly from GitHub:
 
 ```bash
@@ -56,3 +72,19 @@ PY
 - Use this only for 32-bit `armv7l` Raspberry Pi environments.
 - If you are on a 64-bit Raspberry Pi OS, prefer the official PyPI package where possible.
 - The wheel must match your Python ABI. This file is for CPython 3.11.
+
+## Troubleshooting
+
+If `pip` prints this error:
+
+```text
+ERROR: qdrant_edge_py-0.7.2-cp311-cp311-manylinux_2_28_armv7l.whl is not a supported wheel on this platform.
+```
+
+It usually means one of these does not match:
+
+- The machine is not Linux `armv7l`.
+- Python is not CPython 3.11.
+- The system glibc is older than `2.28`.
+
+This error is expected on macOS, x86-64 Linux, ARM64 Linux, or any Python version other than CPython 3.11.
