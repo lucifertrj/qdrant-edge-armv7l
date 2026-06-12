@@ -53,19 +53,29 @@ Or clone this repo and install the wheel from the checked-out source:
 ```bash
 git clone https://github.com/lucifertrj/qdrant-edge-armv7l.git
 cd qdrant-edge-armv7l
+```
+
+> Create an environment variable and Install qdrant-edge
+
+```bash
+python3.11 -m venv env
+source env/bin/activate
 pip install ./qdrant_edge_py-0.7.2-cp311-cp311-manylinux_2_28_armv7l.whl
 ```
 
-## Verify
+## Verify by running an example
 
 ```bash
-python - <<'PY'
-from qdrant_edge import EdgeShard
-
-print("qdrant-edge-py import works")
-print(EdgeShard)
-PY
+python qdrant-edge-python/examples/mmr-query.py
 ```
+
+or
+
+```bash
+python qdrant-edge-python/examples/bm25-search.py
+```
+
+<img width="1920" height="1000" alt="IMG_0703" src="https://github.com/user-attachments/assets/d803a174-008c-454d-a39f-64cad40e6630" />
 
 ## Notes
 
